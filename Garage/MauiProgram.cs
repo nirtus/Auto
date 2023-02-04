@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Components.WebView.Maui;
 using Garage.Data;
 
 namespace Garage;
@@ -16,12 +16,10 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddMauiBlazorWebView();
-
-#if DEBUG
+		#if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
-		builder.Logging.AddDebug();
 #endif
-
+		
 		builder.Services.AddSingleton<WeatherForecastService>();
 
 		return builder.Build();
